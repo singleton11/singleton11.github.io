@@ -1,5 +1,5 @@
 How I installed ubuntu on ASUS K501 LB. After installation instructions (Part 0)
-################################################################################
+================================================================================
 
 :date: 2016-10-30 23:50
 :tags: ubuntu, linux, asus, notebook
