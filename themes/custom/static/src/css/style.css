@@ -1,0 +1,42 @@
+body {
+    /*background: url("/theme/build/img/md-5.png") fixed !important;*/
+    background-color: #dcdcdc !important;
+}
+
+.navbar-inverse {
+    background-color: #8460a0 !important;
+    border-color: #8460a0 !important;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #d8d8d8 !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #d8d8d8 !important;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+    color: #fff !important;
+    background-color: #342449 !important;
+}
+
+.logo {
+    background: url("/theme/build/img/snake.png");
+    background-size: cover;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 100px;
+    text-shadow: 3px 3px 1px black;
+}
+
+.logo > a {
+    color: white;
+}
+
+.logo > a:hover {
+    color: white;
+    text-decoration: none;
+}
