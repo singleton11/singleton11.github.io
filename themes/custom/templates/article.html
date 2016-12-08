@@ -12,33 +12,47 @@
 {% endblock %}
 
 {% block content %}
-<section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-         title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-    {% import 'translations.html' as translations with context %}
-    {{ translations.translations_for(article) }}
-  </header>
-  <footer class="post-info">
-    <time class="published" datetime="{{ article.date.isoformat() }}">
-      {{ article.locale_date }}
-    </time>
-    {% if article.modified %}
-    <time class="modified" datetime="{{ article.modified.isoformat() }}">
-      {{ article.locale_modified }}
-    </time>
-    {% endif %}
-    {% if article.authors %}
-    <address class="vcard author">
-      By {% for author in article.authors %}
-      <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-      {% endfor %}
-    </address>
-    {% endif %}
-  </footer><!-- /.post-info -->
-  <div class="entry-content">
-    {{ article.content }}
-  </div><!-- /.entry-content -->
+<section id="content">
+  {% block breadcrumb %}
+  <ol class="breadcrumb">
+    <li><a href="{{ SITEURL }}/">Home</a></li>
+    <li><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></li>
+    <li class="active">{{ article.title }}</li>
+  </ol>
+  {% endblock %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <article>
+        <header>
+          <h3 class="entry-title">
+            <a href="{{ SITE_URL }}/{{ article.category.url }}">
+              {{ article.category }}
+            </a>
+            &rarr;
+            {{ article.title }}
+          </h3>
+        </header>
+        <span class="glyphicon glyphicon-calendar" title="Created"></span>
+        <time class="published" datetime="{{ article.date.isoformat() }}">
+          {{ article.locale_date }}
+        </time>
+        {% if article.authors %}
+        <address class="vcard author">
+          {% for author in article.authors %}
+          <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">@{{ author }}</a>
+          {% endfor %}
+        </address>
+        {% endif %}
+        <div class="entry-content">
+          {{ article.content }}
+        </div><!-- /.entry-content -->
+        <footer>
+          {% for tag in article.tags %}
+          <a href="{{ SITE_URL }}/{{ tag.url }}"><span class="glyphicon glyphicon-tag"></span> {{ tag }}</a>
+          {% endfor %}
+        </footer>
+      </article>
+    </div>
+  </div>
 </section>
 {% endblock %}
