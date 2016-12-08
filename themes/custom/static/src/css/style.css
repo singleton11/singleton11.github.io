@@ -4,8 +4,8 @@ body {
 }
 
 .navbar-inverse {
-    background-color: #8460a0 !important;
-    border-color: #8460a0 !important;
+    background-color: #337ab7 !important;
+    border-color: #337ab7 !important;
 }
 
 .navbar-inverse .navbar-brand {
@@ -19,7 +19,7 @@ body {
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus,
 .navbar-inverse .navbar-nav > .active > a:hover {
     color: #fff !important;
-    background-color: #342449 !important;
+    background-color: #224f75 !important;
 }
 
 .logo {
