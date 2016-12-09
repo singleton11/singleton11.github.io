@@ -1,5 +1,9 @@
+@font-face {
+    font-family: Oswald;
+    src: url('/theme/build/fonts/Oswald-Light.ttf');
+}
+
 body {
-    /*background: url("/theme/build/img/md-5.png") fixed !important;*/
     background-color: #dcdcdc !important;
 }
 
@@ -30,6 +34,7 @@ body {
     line-height: 200px;
     font-size: 100px;
     text-shadow: 3px 3px 1px black;
+    font-family: Oswald, sans-serif;
 }
 
 .logo > a {
