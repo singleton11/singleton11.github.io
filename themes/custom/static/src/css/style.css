@@ -27,11 +27,11 @@ body {
 }
 
 .logo {
-    background: url("/theme/build/img/snake.png");
+    background: url("/theme/build/img/mountain.png");
     background-size: cover;
-    height: 200px;
+    height: 250px;
     text-align: center;
-    line-height: 200px;
+    line-height: 250px;
     font-size: 100px;
     text-shadow: 3px 3px 1px black;
     font-family: Oswald, sans-serif;
