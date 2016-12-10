@@ -45,3 +45,16 @@ body {
     color: white;
     text-decoration: none;
 }
+
+#contact {
+    list-style: none;
+}
+
+#contact > li {
+    float: left;
+    margin: 5px;
+}
+
+#contact > li > a > img {
+    width: 64px;
+}
