@@ -12,11 +12,6 @@ from pelicanconf import *
 
 SITEURL = 'https://singleton11.github.io'
 
-# Following items are often useful when publishing
-
-#DISQUS_SITENAME = ""
-#GOOGLE_ANALYTICS = ""
-
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
