@@ -2,3 +2,4 @@
 output/
 themes/custom/static/node_modules/
 themes/custom/static/build/
+*.pyc
