@@ -36,10 +36,19 @@ def build():
     """Build local version of site"""
     local('pelican -s pelicanconf.py')
 
+def build_public():
+    """Build local version of site"""
+    local('pelican -s publishconf.py')
+
 def rebuild():
     """`clean` then `build`"""
     clean()
     build()
+
+def rebuild_public():
+    """`clean` then `build`"""
+    clean()
+    build_public()
 
 def regenerate():
     """Automatically regenerate site upon file modification"""
@@ -89,6 +98,6 @@ def publish():
 
 def gh_pages():
     """Publish to GitHub Pages"""
-    rebuild()
+    rebuild_public()
     local("ghp-import -b {github_pages_branch} {deploy_path}".format(**env))
     local("git push origin {github_pages_branch}".format(**env))
