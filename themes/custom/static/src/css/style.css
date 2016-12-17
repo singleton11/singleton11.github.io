@@ -58,3 +58,7 @@ body {
 #contact > li > a > img {
     width: 64px;
 }
+
+.literal {
+    background-color: #ffded3;
+}
