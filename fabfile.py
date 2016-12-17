@@ -113,3 +113,8 @@ def gh_pages():
     rebuild_public()
     local("ghp-import -b {github_pages_branch} {deploy_path}".format(**env))
     local("git push origin {github_pages_branch}".format(**env))
+
+
+def create_new_post():
+    """Create a new post from boilerplate"""
+    local('cookiecutter https://github.com/singleton11/new-pelican-post -f')
