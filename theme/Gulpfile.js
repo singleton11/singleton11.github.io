@@ -4,7 +4,7 @@ var concat = require('gulp-concat');
 var paths = ['src/css/*', 'src/img/*'];
 
 gulp.task('css', function () {
-    return gulp.src(['src/css/style.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css'])
+    return gulp.src(['src/css/style.css', 'src/css/colorful.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css'])
         .pipe(concat('all.css'))
         .pipe(gulp.dest('build/css'));
 });

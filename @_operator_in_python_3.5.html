@@ -5,6 +5,14 @@
   <meta charset="utf-8"/>
   <link href="https://singleton11.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
         title="import Blog Full Atom Feed"/>
+  <link href="https://singleton11.github.io/feeds/python.atom.xml" type="application/atom+xml"
+        rel="alternate" title="import Blog Categories Atom Feed"/>
+
+
+<meta name="tags" content="python"/>
+<meta name="tags" content="syntax sugar"/>
+<meta name="tags" content="operators"/>
+
   <link rel=icon href="/theme/build/img/favicon.png" type="image/png">
   <link rel="stylesheet" href="https://singleton11.github.io/theme/build/css/all.css">
 </head>
@@ -40,30 +48,31 @@
     <div class="col-xs-9">
 <section id="content">
   <ol class="breadcrumb">
-    <li class="active">Home</li>
+    <li><a href="https://singleton11.github.io/">Home</a></li>
+    <li><a href="https://singleton11.github.io/category/python.html">Python</a></li>
+    <li class="active">&#64; operator in python 3.5</li>
   </ol>
   <div class="panel panel-default">
     <div class="panel-body">
       <article>
         <header>
-          <h3>
+          <h3 class="entry-title">
             <a href="/category/python.html">
               Python
             </a>
             &rarr;
-            <a href="https://singleton11.github.io/@_operator_in_python_3.5.html"
-               rel="bookmark"
-               title="Permalink to @ operator in python 3.5">
-              &#64; operator in python 3.5
-            </a>
+            &#64; operator in python 3.5
           </h3>
         </header>
-        <span class="glyphicon glyphicon-calendar"></span>
-        <time class="published" datetime="2016-12-17T22:42:25+07:00"> Sat 17 December 2016</time>
+        <span class="glyphicon glyphicon-calendar" title="Created"></span>
+        <time class="published" datetime="2016-12-17T22:42:25+07:00">
+          Sat 17 December 2016
+        </time>
         <address class="vcard author">
           <a class="url fn" href="https://singleton11.github.io/author/anton-prokhorov.html">@Anton Prokhorov</a>
         </address>
-        <p><p>Today I learned there is an operator &quot;&#64;&quot; in python 3.5. If you just type <tt class="docutils literal">5 &#64; 5</tt> in python REPL, you will see the next
+        <div class="entry-content">
+          <p>Today I learned there is an operator &quot;&#64;&quot; in python 3.5. If you just type <tt class="docutils literal">5 &#64; 5</tt> in python REPL, you will see the next
 message</p>
 <pre class="literal-block">
 ---------------------------------------------------------------------------
@@ -86,16 +95,68 @@ TypeError: unsupported operand type(s) for &#64;: 'int' and 'int'
 <p>There is a very weird behaviour of pygments, it suggests &quot;&#64;&quot; operator is a mistake, but don't care.
 As you might guess, &#64; is a matrix multiplication operator. However I suggest, that this is not the only thing for what
 this operator can be used.</p>
-</p>
+
+<p>To implement behaviour of operand of &quot;&#64;&quot; we need to define a class with <tt class="docutils literal">__matmul__</tt>, <tt class="docutils literal">__rmatmul__</tt> and
+<tt class="docutils literal">__imatmul__</tt> magic methods. There is a little example below:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">__matmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">__imatmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">__rmatmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;A &lt;{value}&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="err">@</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">a</span> <span class="err">@</span><span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+<p>Code above will produce following out:</p>
+<pre class="literal-block">
+25
+5
+25
+</pre>
+<p>Could suggest of a bunch of applications of &quot;&#64;&quot; operator (compositions, transforms etc.), I suggest it shouldn't be
+restricted only by matrix multiplications.</p>
+<p>Happy coding :)</p>
+
+        </div><!-- /.entry-content -->
         <footer>
           <a href="/tag/python.html"><span class="glyphicon glyphicon-tag"></span> python</a>
           <a href="/tag/syntax-sugar.html"><span class="glyphicon glyphicon-tag"></span> syntax sugar</a>
           <a href="/tag/operators.html"><span class="glyphicon glyphicon-tag"></span> operators</a>
         </footer>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'importblog'; 
+    var disqus_title = '&#64; operator in python 3.5';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       </article>
     </div>
   </div>
-</section><!-- /#content -->
+</section>
     </div>
     <div class="col-xs-3">
       <div class="panel panel-primary">
@@ -103,9 +164,9 @@ this operator can be used.</p>
         <div class="panel-body">
           <nav>
             <ul class="nav nav-pills nav-stacked">
-              <li >
+              <li  class="active" >
                 <a href="https://singleton11.github.io/category/python.html">
-                  <span class="glyphicon glyphicon-folder-close"></span>
+                  <span class="glyphicon glyphicon-folder-open"></span>
                   Python
                 </a>
               </li>
