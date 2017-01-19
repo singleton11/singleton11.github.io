@@ -1,8 +1,3 @@
-@font-face {
-    font-family: Oswald;
-    src: url('/theme/fonts/Oswald-Light.ttf');
-}
-
 body {
     background-color: #dcdcdc !important;
 }
@@ -34,7 +29,6 @@ body {
     line-height: 250px;
     font-size: 100px;
     text-shadow: 3px 3px 1px black;
-    font-family: Oswald, sans-serif;
 }
 
 .logo > a {
