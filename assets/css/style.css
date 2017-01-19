@@ -1,6 +1,6 @@
 @font-face {
     font-family: Oswald;
-    src: url('/theme/build/fonts/Oswald-Light.ttf');
+    src: url('/theme/fonts/Oswald-Light.ttf');
 }
 
 body {
@@ -27,7 +27,7 @@ body {
 }
 
 .logo {
-    background: url("/theme/build/img/laptop.jpg");
+    background: url("/theme/img/laptop.jpg");
     background-size: cover;
     height: 250px;
     text-align: center;
