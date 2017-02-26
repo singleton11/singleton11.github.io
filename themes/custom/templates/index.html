@@ -6,17 +6,13 @@
     <div class="panel-body">
       <article>
         <header>
-          <h3>
-            <a href="{{ SITE_URL }}/{{ article.category.url }}">
-              {{ article.category }}
-            </a>
-            &rarr;
+          <h1>
             <a href="{{ SITEURL }}/{{ article.url }}"
                rel="bookmark"
                title="Permalink to {{ article.title|striptags }}">
               {{ article.title}}
             </a>
-          </h3>
+          </h1>
         </header>
         <span class="glyphicon glyphicon-calendar"></span>
         <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>

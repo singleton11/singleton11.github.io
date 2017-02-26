@@ -52,3 +52,11 @@
 .literal {
     background-color: #ffded3;
 }
+
+h1 > a {
+    color: black;
+}
+
+h1 > a:hover {
+    text-decoration: none;
+}
