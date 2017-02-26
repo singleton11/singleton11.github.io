@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 <section id="content">
-  {% block breadcrumb %}
-  <ol class="breadcrumb">
-    <li class="active">Home</li>
-  </ol>
-  {% endblock %}
   {% for article in articles_page.object_list %}
   <div class="panel panel-default">
     <div class="panel-body">
