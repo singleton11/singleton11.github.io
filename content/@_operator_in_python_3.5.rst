@@ -8,7 +8,7 @@
 :slug: @_operator_in_python_3.5
 :authors: Anton Prokhorov
 
-Today I learned there is an operator "@" in python 3.5. If you just type ``5 @ 5`` in python REPL, you will see the next
+Today I learned there is an operator "@" in python 3.5. If you just type 5 @ 5 in python REPL, you will see the next
 message
 
 ::
@@ -21,9 +21,9 @@ message
     TypeError: unsupported operand type(s) for @: 'int' and 'int'
 
 
-New python syntax supports ``@`` operator, however there are no built-in types which can be operands of this operators.
+New python syntax supports @ operator, however there are no built-in types which can be operands of this operators.
 
-But ``numpy`` is.
+But numpy is.
 
 There is a little example below:
 
