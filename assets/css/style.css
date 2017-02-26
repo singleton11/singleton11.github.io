@@ -63,3 +63,7 @@ pre {
 article {
     margin-top: 45px;
 }
+
+time {
+    color: #909090;
+}
