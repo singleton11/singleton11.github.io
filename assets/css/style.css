@@ -77,3 +77,16 @@ time {
 .tag:hover {
     text-decoration: none;
 }
+
+#pages {
+    text-align: center;
+}
+
+#newer-link {
+    text-align: right;
+}
+
+#pagination {
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
