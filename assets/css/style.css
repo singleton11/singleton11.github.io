@@ -62,7 +62,8 @@ h1 > a:hover {
 }
 
 article {
-    font-size: 21px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
 }
 
 pre {

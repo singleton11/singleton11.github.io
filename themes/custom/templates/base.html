@@ -38,6 +38,7 @@
   {% endif %}
   {% endblock head %}
   <link rel=icon href="{{ SITE_URL }}/theme/img/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/all.css">
 </head>
 
@@ -48,68 +49,30 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-9">
+    <div class="col">
       {% block content %}
       {% endblock %}
-    </div>
-    <div class="col-xs-3">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Categories</div>
-        <div class="panel-body">
-          <nav>
-            <ul class="nav nav-pills nav-stacked">
-              {% for cat, null in categories %}
-              <li {% if cat== category %} class="active" {% endif %}>
-                <a href="{{ SITEURL }}/{{ cat.url }}">
-                  {% if cat== category %}
-                  <span class="glyphicon glyphicon-folder-open"></span>
-                  {% else %}
-                  <span class="glyphicon glyphicon-folder-close"></span>
-                  {% endif %}
-                  {{cat}}
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div class="panel panel-primary">
-        <div class="panel-heading">Tags</div>
-        <div class="panel-body">
-          <nav>
-            {% for tag in tags %}
-            <a href="{{ SITE_URL }}/{{ tag[0].url }}"><span class="glyphicon glyphicon-tag"></span>
-              {{ tag[0] }}({{ tag[1] | length }})
-            </a>
-            {% endfor %}
-          </nav>
-        </div>
-      </div>
-      <div class="panel panel-primary">
-        <div class="panel-heading">Contacts</div>
-        <div class="panel-body">
-          <nav>
-            <ul id="contact">
-              <li><a href="https://github.com/singleton11" target="_blank"><img
-                  src="{{ SITE_URL }}/theme/img/github.png"></a></li>
-              <li><a href="https://www.instagram.com/singleton11/" target="_blank"><img
-                  src="{{ SITE_URL }}/theme/img/instagram.png"></a></li>
-              <li><a href="https://twitter.com/betrayer65536" target="_blank"><img
-                  src="{{ SITE_URL }}/theme/img/twitter.png"></a></li>
-              <li><a href="https://www.facebook.com/betrayer65536" target="_blank"><img
-                  src="{{ SITE_URL }}/theme/img/facebook.png"></a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
     </div>
   </div>
 
   <footer id="contentinfo" class="body">
     <address id="about" class="vcard body">
-      <div class="panel panel-default">
-        <div class="panel-body">
+      <div class="row">
+        <div class="col">
+          <ul id="contact">
+            <li><a href="https://github.com/singleton11" target="_blank"><img
+                src="{{ SITE_URL }}/theme/img/github.png"></a></li>
+            <li><a href="https://www.instagram.com/singleton11/" target="_blank"><img
+                src="{{ SITE_URL }}/theme/img/instagram.png"></a></li>
+            <li><a href="https://twitter.com/betrayer65536" target="_blank"><img
+                src="{{ SITE_URL }}/theme/img/twitter.png"></a></li>
+            <li><a href="https://www.facebook.com/betrayer65536" target="_blank"><img
+                src="{{ SITE_URL }}/theme/img/facebook.png"></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <a href="https://www.facebook.com/betrayer65536" target="_blank">Anton Prokhorov</a> © 2016
         </div>
       </div>
