@@ -38,6 +38,8 @@
 
 #contact {
     list-style: none;
+    width: 33%;
+    margin: auto;
 }
 
 #contact > li {
@@ -71,4 +73,8 @@ pre {
     border-radius: 4px;
     padding: 5px;
     background: #f5f4f4;
+}
+
+#copyright {
+    text-align: center;
 }
