@@ -19,7 +19,7 @@
         <p>{{ article.summary }}</p>
         <footer>
           {% for tag in article.tags %}
-          <a href="{{ SITE_URL }}/{{ tag.url }}"><span class="glyphicon glyphicon-tag"></span> {{ tag }}</a>
+          <a class="tag" href="{{ SITE_URL }}/{{ tag.url }}"><span class="glyphicon glyphicon-tag"></span> {{ tag }}</a>
           {% endfor %}
         </footer>
       </article>

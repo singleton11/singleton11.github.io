@@ -67,3 +67,13 @@ article {
 time {
     color: #909090;
 }
+
+.tag {
+    border: 1px solid #000;
+    padding: 12px;
+    border-radius: 20px;
+}
+
+.tag:hover {
+    text-decoration: none;
+}
